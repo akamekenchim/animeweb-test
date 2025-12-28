@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/* --- ẢNH NỀN TOÀN TRANG VỚI LỚP PHỦ MỜ --- */
+.overlay-background {
+    /* Đặt ảnh nền kèm lớp phủ màu đen mờ 0.5 */
+    background-image: 
+        linear-gradient(rgba(6, 3, 4, 0.7), rgba(0, 0, 0, 0.7)), 
+        url(images/hsr4k_wallpp.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* --- TIÊU ĐỀ CHÍNH --- */
+h2{
+    font-family: cursive;
+    text-shadow:
+        0 0 10px #cd0606,
+        0 0 21px #fd0202;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* --- HEADER --- */
+/* Căn giữa các mục trong header và tạo khoảng cách */
+header nav {
+    display: flex;
+    gap: 20px; 
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color:#FFF;
+}
+header a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 0 7px white, 0 0 21px pink;
+}
+header p{
+    font-family: Quicksand, Montserrat;
+}
+header p:hover{
+    text-shadow: 
+        0 0 7px #e48383,
+        0 0 10px #f951f3,
+        0 0 21px #f64db0,
+        0 0 42px #e835a6;
+}
+
+/*--  NAVBAR  --- */
+/* --- THANH ĐIỀU HƯỚNG CỐ ĐỊNH Ở ĐẦU TRANG --- */
+
+.sticky-nav {
+    position: fixed; /* Bắt buộc dùng fixed để nó đi theo màn hình */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    
+    /* Trạng thái mặc định khi ở đầu trang: Ẩn lên trên */
+    transform: translateY(-100%); 
+    opacity: 0;
+    
+    /* Thời gian lướt ra lướt vào (0.4 giây) */
+    transition: all 0.2s ease-in-out;
+    
+    background-color: #0b0b0b; /* Màu nền của menu */
+}
+.nav-logo{
+    width: 70px;
+}
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0 40px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Quicksand, Montserrat;
+}
+.nav-links li:hover{
+    color: rgb(233, 68, 101);
+    transition: color 0.3s;
+}
+.other-links{
+    margin-left: auto;
+    margin-right: 10px;
+}
+/* --- KHUNG BAO CHÍNH --- */
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: stretch giúp card đen tự kéo dài bằng cột bên phải */
+    align-items: stretch; 
+    gap: 25px;
+    max-width: 1300px;
+    margin: 50px auto;
+    width: 95%;
+}
+
+/* --- CARD ĐEN (Bên trái - Dáng dọc) --- */
+.card-black {
+    flex: 0 0 350px;    /* Khống chế chiều rộng cố định để giữ dáng dọc */
+    flex-direction: column;
+    background: #000;
+    padding: 0 !important; /* Để ảnh poster phủ kín */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start !important;
+}
+
+/* --- DANH SÁCH MỤC LỤC --- */
+/* Container chứa danh sách */
+
+.toc-list {
+    margin-left: 30px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Khoảng cách giữa các dòng */
+}
+
+/* Các mục chính (1, 2, 3...) */
+.toc-item {
+    font-size: 18px;
+    font-weight: 500;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+summary{
+    list-style: none;
+}
+.a-toc{
+    font-size: 18px;
+    font-weight: 500;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.a-toc:hover{
+    color: #ff4d4d;
+}
+.toc-item:hover {
+    color: #ff4d4d; /* Hiệu ứng đổi màu khi rê chuột vào */
+}
+
+/* Các mục con (3.1, 3.2...) */
+.toc-sub-item {
+    font-size: 16px;
+    color: #b0b0b0;
+    padding-left: 25px; /* Thụt lề vào trong */
+    cursor: pointer;
+}
+
+.toc-sub-item:hover {
+    color: white;
+}
+.toc-description{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+/* Tiêu đề của danh sách */
+.toc-title {
+    margin-left: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ảnh tự lấp đầy card đen mà không bị méo */
+}
+
+/* --- CỘT BÊN PHẢI (Chứa 2 card xếp chồng) --- */
+.side-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đẩy 2 card ra 2 đầu để cao bằng card đen */
+    gap: 50px;
+    flex: 1; /* Tự động rộng ra chiếm không gian còn lại (Rộng > Cao) */
+}
+/* --- CARD NHÂN VẬT --- */
+/* --- ĐỊNH DẠNG CARD CHUNG --- */
+.card-container {
+    position: relative;
+    border-radius: 25px;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+.card-img{
+    border-radius: 20px;
+    box-shadow: 0 0 7px rgb(193, 99, 114), 0 0 10px purple, 0 0 21px purple;
+}
+.akame-img{
+    box-shadow: 0 0 15px darkred, 0 0 21px darkred;
+}
+.card-akame {
+    background: linear-gradient(to left, rgb(153, 2, 2), black);
+}
+
+.card-acheron {
+    background: linear-gradient(to left, #4b0245, black);
+    flex-direction: row; /* Đảo ảnh sang phải */
+}
+
+/* --- HIỆU ỨNG PHÁT SÁNG (Glow) --- */
+.card-container::before {
+    content: "";
+    position: absolute;
+    top: -4px; left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    z-index: -1;
+    filter: blur(15px);
+    animation: glowing 13s linear infinite;
+    border-radius: 27px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Riêng dải màu cho từng loại card */
+.card-akame::before { background: linear-gradient(45deg, red, #000, red); background-size: 400%; }
+.card-acheron::before { background: linear-gradient(45deg, purple, #000, purple); background-size: 400%; }
+
+.card-container:hover::before { opacity:0.5; }
+
